@@ -1,0 +1,160 @@
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#app{
+    background-color:white;
+    position: relative;
+    /* height: 736px; */
+}
+
+.titleBar{
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    height: 44px;
+    line-height: 44px;
+}
+.container{
+    /* margin-top: 45px; */
+    /* height: 700px; */
+}
+
+.titleBarFixed{
+    width: 100%; 
+    position: fixed;
+    top:0;
+}
+
+.titleBarText{
+    font-size: 14px;
+    color: #1A1A1A;
+    padding-bottom: 15px;
+}
+
+.titleBarTextClicked{
+    font-weight:700;
+    color: #1B1C33;
+    border-bottom: 2px solid #FF571A;
+}
+
+
+.bottomBar{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items:center;
+    position: fixed;
+    bottom: 0
+}
+
+.bottomBar div{
+    flex-grow:1;
+    text-align: center;
+}
+
+
+table{
+    width:100%;
+    text-align:center;
+    border-collapse:collapse;
+    border-spacing:0;
+}
+table td{
+    word-break: break-all; 
+    word-wrap:break-word; 
+}
+.container{
+    /* height: 500px; */
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+
+}
+#left-div{
+    /* width:80px;
+    float: left; */
+    border-right: 1px solid #E3E4E6;
+    box-shadow: 1px 0px 0px 0px #D7D8DB;
+}
+
+#left-div>div{
+    margin-left: 16px;
+    margin-right: 16px;
+}
+#left-div1 th , #left-div2 td{
+    text-align: left;
+    min-width: 56px;
+    max-width: 256px;
+}
+
+
+
+#left-div1{
+    width: 100%;
+}
+#left-div2{
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+#left-table2{
+    margin-bottom: 4px;
+}
+#right-div{
+    float: left;
+    width: 325px;
+    /* overflow-x: scroll */
+}
+
+#right-div2 td div,#right-div1 th div{
+    margin-right: 30px;
+    text-align: right;
+    min-width: 80px;
+    white-space:nowrap;
+}
+#right-div2 td,#right-div1 th{
+    
+}
+
+#right-div1{
+    width: 100%;
+    overflow: hidden;
+}
+#right-div2{
+    width: 100%;
+    height: 250px;
+    /* overflow: auto; */
+    overflow-x: scroll
+}
+#right-table1{
+    width: 400px;
+}
+#right-table2{
+    width: 400px;
+    overflow: auto;
+}
+th,td{
+    
+}
+th{
+    color: #8D8E99;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    height: 44px;
+    font-size: 12px;
+    font-weight: normal
+}
+td{
+    font-size: 14px;
+    color: #1B1C33;
+    padding-top: 23px;
+    padding-bottom: 23px;
+}
+
+
+
+

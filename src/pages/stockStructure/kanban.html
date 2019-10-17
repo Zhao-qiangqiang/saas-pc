@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+  <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+
+  <link rel="stylesheet" href="./kanban.css">
+
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <div class="titleBar" :class="{'titleBarFixed':titleBarIsFixed}">
+      <div class="titleBarTextCon" v-for="(item,index) in tabBar" :key='index' :class="{'titleBarTextClicked': currentBar == index}">
+        <span class="titleBarText" 
+          @click="titleBarChoosed(index)">{{item.itemBar}}</span>
+      </div>
+    </div>
+    <div class="container">
+      <div id="left-div">
+        <div id="left-div1">
+          <table>
+            <tr>
+              <th>{{carSeriesOrCarMode == 1 ? '车系' : '车型'}}</th>
+            </tr>
+          </table>
+        </div>
+        <div id="left-div2">
+          <table id="left-table2"></table>
+        </div>
+      </div>
+      <div id="right-div">
+        <div id="right-div1">
+          <table id="right-table1">
+            <tr>
+              <th v-for="(item,index) in titleItem" :key='index'><div>{{item.label}}</div></th>
+            </tr>
+          </table>
+        </div>
+        <div id="right-div2">
+          <table id="right-table2"></table>
+        </div>
+      </div>
+          <div id="fixed" :class="{'animatedShow':isAnimatedShow,'animatedHide':isAnimatedHide}" class="bottomBar">
+            <div>
+              <span>车系</span>
+            </div>
+            <div>
+              <span>车型</span>
+            </div>
+          </div>
+    </div>
+
+</body>
+
+
+<script type="text/javascript">
+  new Vue({
+    el: '#app',
+    data() {
+      return {
+        tabBar: [{
+            itemBar: '库龄统计',
+            index: 0
+          },
+          {
+            itemBar: '资金结构',
+            index: 1
+          },
+          {
+            itemBar: '本月销售情况',
+            index: 2
+          },
+        ], // tabBar 列表
+        currentBar: 0, // 当前选中tabbar
+        titleItem: [],
+        libraryAge: [], // 库龄统计
+        fundStructure: [{
+            label: '资金合计(元)',
+            value: 'totalFunds'
+          },
+          {
+            label: '期初库存系数)',
+            value: 'facKpiXjpay'
+          },
+          {
+            label: '现金车(台)',
+            value: 'cashCarCnt'
+          },
+          {
+            label: '金融车(元)',
+            value: 'facKpiJrpay'
+          },
+          {
+            label: '金融车(台)',
+            value: 'financialCarCnt'
+          },
+        ], // 资金结构
+        monthSale: [], //本月销售情况 
+        scrollTop: 0, // 当前滚动的距离
+        oldScrollTop: 0, // 距离上一次位置的距离
+        carSeriesOrCarMode: 1, // 车系or车型   1: 车系     2: 车型    默认 1
+        isAnimatedShow: false,
+        isAnimatedHide: false,
+        isShow: true,
+        titleBarIsFixed: false,
+        touchStart: 0, // 手指碰下的位置
+        touchEnd: 0, // 手指离开的位置
+      }
+    },
+    methods: {
+      // tabBar 切换
+      titleBarChoosed(index) {
+        const {
+          libraryAge,
+          fundStructure,
+          monthSale
+        } = this
+        switch (index) {
+          case 0:
+            this.titleItem = libraryAge
+            break;
+
+          case 1:
+            this.titleItem = fundStructure
+            break;
+
+          case 2:
+            this.titleItem = monthSale
+            break;
+
+          default:
+            break;
+        }
+        this.currentBar = index
+        let obj = {
+          type: 'toggleBar',
+          carSeriesOrCarMode: this.carSeriesOrCarMode,
+          currentIndex: index
+        }
+        window.postMessage(JSON.stringify(obj))
+      },
+
+      // 滑动事件
+      handleScroll(e) {
+        var aaa = $(window).scrollTop()
+        console.log($(window).scrollTop())
+        console.log(e,"滑动中")
+        $("#fixed").hide()
+        let offsetTop = document.querySelector('#fixed').offsetTop
+        if(offsetTop == 0){
+          this.titleBarIsFixed = true
+        }
+        // let obj = {
+        //   type: 'scrollTop',
+        //   isTop: true,
+        // }
+        // window.postMessage(JSON.stringify(obj))
+      },
+      handleTouchMove(e) {
+        $("#fixed").hide()
+        let offsetTop = document.querySelector('#fixed').offsetTop
+        if(offsetTop == 0){
+          this.titleBarIsFixed = true
+        }
+        // let obj = {
+        //   type: 'scrollTop',
+        //   isTop: true,
+        // }
+        // window.postMessage(JSON.stringify(obj))
+      },
+      handleTouchStart(e) {
+        console.log(e.touches[0].clientY)
+        this.touchStart = e.touches[0].clientY
+      },
+      handleTouchEnd(e) {
+        console.log(e.changedTouches[0].clientY)
+        this.touchEnd = e.changedTouches[0].clientY
+        if(this.touchStart - this.touchEnd > 10){
+          let obj = {
+                type: 'scrollTop',
+                isTop: true,
+          }
+          window.postMessage(JSON.stringify(obj))
+        }
+        if(this.touchEnd > this.touchStart){
+          let obj = {
+                type: 'scrollTop',
+                isTop: true,
+          }
+          window.postMessage(JSON.stringify(obj))
+        }
+        let offsetTop = document.querySelector('#fixed').offsetTop
+        if(offsetTop == 0){
+          this.titleBarIsFixed = true
+          // let obj = {
+          // type: 'scrollTop',
+          // isTop: false,
+          // }
+          // window.postMessage(JSON.stringify(obj))
+        }
+        $("#fixed").slideDown(1500)
+      },
+      windowScroll(){
+        var aaa = $(window).scrollTop()
+        console.log($(window).scrollTop())
+        let obj = {
+          type: 'scrollTop',
+          isTop: false,
+          index:aaa
+        }
+        window.postMessage(JSON.stringify(obj))
+      }
+
+    },
+    mounted() {
+      // 此处接受从webview返回的参数
+      const that = this
+
+
+      window.document.addEventListener('message', function (e) { //注册事件 接收数据
+        const index = JSON.parse(e.data).title
+        switch (index) {
+          case 'one':
+            that.titleItem = JSON.parse(e.data).libraryAgeTitleList
+            that.libraryAge = JSON.parse(e.data).libraryAgeTitleList
+
+            break;
+          case 'two':
+
+            break;
+          case 'three':
+
+            break;
+
+          default:
+            break;
+        }
+      })
+
+      // 监听滑动
+      $('#right-div2').on('scroll', this.handleScroll)
+      $('#right-div2').on('touchmove', this.handleTouchMove)
+      $('#right-div2').on('touchstart', this.handleTouchStart)
+      $('#right-div2').on('touchend', this.handleTouchEnd)
+      let htmlLeft = '';
+      let htmlRight = '';
+      for (let i = 1; i <= 7; i++) {
+        htmlLeft += '<tr>';
+        htmlLeft += '<td>' + i + '</td>';
+        htmlLeft += '</tr>';
+      }
+      for (let i = 1; i <= 7; i++) {
+        htmlRight += '<tr>';
+        htmlRight += '<td><div>A</div></td>';
+        htmlRight += '<td><div>100</div></td>';
+        htmlRight += '<td><div>200</div></td>';
+        htmlRight += '<td><div>300</div></td>';
+        htmlRight += '<td><div>300</div></td>';
+        htmlRight += '</tr>';
+      }
+      $('#left-table2').html(htmlLeft);
+      $('#right-table2').html(htmlRight);
+      //滚动
+      $('#right-div2').on('scroll', function () {
+        let top = $(this).scrollTop();
+        let left = $(this).scrollLeft();
+        $('#left-div2').scrollTop(top);
+        $('.container').css({
+          'marginTop':45
+        });
+        $('#right-div1').scrollLeft(left);
+      })
+      
+
+      // window.addEventListener('scroll',this.windowScroll)
+    },
+    watch: {
+      // 监听是否滚动
+      scrollTop(newValue, oldValue) {
+        setTimeout(() => {
+          if (newValue == window.scrollY) { //延时执行后当newValue等于window.scrollY，代表滚动结束
+            // console.log('滚动结束');
+            this.oldScrollTop = newValue; //每次滚动结束后都要给oldScrollTop赋值
+            // this.isShow = true
+            this.isAnimatedHide = false
+            this.isAnimatedShow = true
+            this.titleBarIsFixed = true
+            if (this.touchStart > this.touchEnd) {
+              let obj = {
+                type: 'scrollTop',
+                isTop: true,
+                aaa: '滑动结束'
+              }
+              window.postMessage(JSON.stringify(obj))
+            } else {
+              let obj = {
+                type: 'scrollTop',
+                isTop: false,
+                aaa: '滑动结束'
+              }
+              window.postMessage(JSON.stringify(obj))
+
+            }
+
+          };
+        }, 20); //必须使用延时器，否则每次newValue和window.scrollY都相等，无法判断，20ms刚好大于watch的侦听周期，故延时20ms
+      }
+    },
+    beforeDestroy() {
+      window.removeEventListener('scroll'); //离开当前组件别忘记移除事件监听哦
+      window.removeEventListener('touchmove'); //离开当前组件别忘记移除事件监听哦
+    }
+
+  })
+</script>
+
+</html>

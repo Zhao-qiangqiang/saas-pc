@@ -1,0 +1,274 @@
+[
+	{
+		"module": "",
+		"method": "open",
+		"desc": "",
+		"route": "/AccountManagement",
+		"params": {},
+		"callbacks": {}
+	},
+	{
+		"module": "",
+		"method": "open",
+		"desc": "",
+		"route": "/Demo",
+		"params": {},
+		"callbacks": {}
+	},
+	{
+		"module": "",
+		"method": "open",
+		"desc": "",
+		"route": "/Index",
+		"params": {},
+		"callbacks": {}
+	},
+	{
+		"module": "",
+		"method": "open",
+		"desc": "",
+		"route": "/InventoryCarDetail/component/CarInfo",
+		"params": {},
+		"callbacks": {}
+	},
+	{
+		"module": "",
+		"method": "open",
+		"desc": "",
+		"route": "/InventoryCarDetail/component/CarTag",
+		"params": {},
+		"callbacks": {}
+	},
+	{
+		"module": "",
+		"method": "open",
+		"desc": "",
+		"route": "/InventoryCarDetail/component",
+		"params": {},
+		"callbacks": {}
+	},
+	{
+		"module": "",
+		"method": "open",
+		"desc": "",
+		"route": "/InventoryCarDetail/component/style",
+		"params": {},
+		"callbacks": {}
+	},
+	{
+		"module": "",
+		"method": "open",
+		"desc": "",
+		"route": "/InventoryCarDetail",
+		"params": {},
+		"callbacks": {}
+	},
+	{
+		"module": "",
+		"method": "open",
+		"desc": "",
+		"route": "/InventoryCarList/Component/ColorAndTypeSelector",
+		"params": {},
+		"callbacks": {}
+	},
+	{
+		"module": "",
+		"method": "open",
+		"desc": "",
+		"route": "/InventoryCarList/Component/FormatFilterData",
+		"params": {},
+		"callbacks": {}
+	},
+	{
+		"module": "",
+		"method": "open",
+		"desc": "",
+		"route": "/InventoryCarList/Component",
+		"params": {},
+		"callbacks": {}
+	},
+	{
+		"module": "",
+		"method": "open",
+		"desc": "",
+		"route": "/InventoryCarList/Component/listItem",
+		"params": {},
+		"callbacks": {}
+	},
+	{
+		"module": "",
+		"method": "open",
+		"desc": "",
+		"route": "/InventoryCarList/Component/Styles",
+		"params": {},
+		"callbacks": {}
+	},
+	{
+		"module": "",
+		"method": "open",
+		"desc": "",
+		"route": "/InventoryCarList/Component/TagList",
+		"params": {},
+		"callbacks": {}
+	},
+	{
+		"module": "",
+		"method": "open",
+		"desc": "",
+		"route": "/InventoryCarList",
+		"params": {},
+		"callbacks": {}
+	},
+	{
+		"module": "",
+		"method": "open",
+		"desc": "",
+		"route": "/InventoryHome",
+		"params": {},
+		"callbacks": {}
+	},
+	{
+		"module": "",
+		"method": "open",
+		"desc": "",
+		"route": "/InventoryHome/SearchPageDemo",
+		"params": {},
+		"callbacks": {}
+	},
+	{
+		"module": "",
+		"method": "open",
+		"desc": "",
+		"route": "/InventoryKanBan/component/inputResult",
+		"params": {},
+		"callbacks": {}
+	},
+	{
+		"module": "",
+		"method": "open",
+		"desc": "",
+		"route": "/InventoryKanBan/component/Search",
+		"params": {},
+		"callbacks": {}
+	},
+	{
+		"module": "",
+		"method": "open",
+		"desc": "",
+		"route": "/InventoryKanBan/component/selectResult",
+		"params": {},
+		"callbacks": {}
+	},
+	{
+		"module": "",
+		"method": "open",
+		"desc": "",
+		"route": "/InventoryKanBan",
+		"params": {},
+		"callbacks": {}
+	},
+	{
+		"module": "",
+		"method": "open",
+		"desc": "",
+		"route": "/InventorySharing/component/SearchList",
+		"params": {},
+		"callbacks": {}
+	},
+	{
+		"module": "",
+		"method": "open",
+		"desc": "",
+		"route": "/InventorySharing/component/SearchResult",
+		"params": {},
+		"callbacks": {}
+	},
+	{
+		"module": "",
+		"method": "open",
+		"desc": "",
+		"route": "/InventorySharing",
+		"params": {},
+		"callbacks": {}
+	},
+	{
+		"module": "",
+		"method": "open",
+		"desc": "",
+		"route": "/InventoryVendibility",
+		"params": {},
+		"callbacks": {}
+	},
+	{
+		"module": "",
+		"method": "open",
+		"desc": "",
+		"route": "/List",
+		"params": {},
+		"callbacks": {}
+	},
+	{
+		"module": "",
+		"method": "open",
+		"desc": "",
+		"route": "/stockCarList",
+		"params": {},
+		"callbacks": {}
+	},
+	{
+		"module": "",
+		"method": "open",
+		"desc": "",
+		"route": "/stockCarListIteration/component/Search",
+		"params": {},
+		"callbacks": {}
+	},
+	{
+		"module": "",
+		"method": "open",
+		"desc": "",
+		"route": "/stockCarListIteration",
+		"params": {},
+		"callbacks": {}
+	},
+	{
+		"module": "",
+		"method": "open",
+		"desc": "",
+		"route": "/stockControl",
+		"params": {},
+		"callbacks": {}
+	},
+	{
+		"module": "",
+		"method": "open",
+		"desc": "",
+		"route": "/stockStructure/component/Search",
+		"params": {},
+		"callbacks": {}
+	},
+	{
+		"module": "",
+		"method": "open",
+		"desc": "",
+		"route": "/stockStructure",
+		"params": {},
+		"callbacks": {}
+	},
+	{
+		"module": "",
+		"method": "open",
+		"desc": "",
+		"route": "/stockStructure/index11",
+		"params": {},
+		"callbacks": {}
+	},
+	{
+		"module": "",
+		"method": "open",
+		"desc": "",
+		"route": "/stockStructure/kanban",
+		"params": {},
+		"callbacks": {}
+	}
+]
